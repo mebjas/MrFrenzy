@@ -1,0 +1,55 @@
+{
+    "patterns": [
+        {
+            "r": "^[{(]?[0-9A-F]{8}[-]?([0-9A-F]{4}[-]?){3}[0-9A-F]{12}[)}]?$",
+            "class": "GUID"
+        },
+        {
+            "r": "(\\d*)",
+            "class": "NUMBER",
+            "full": true
+        },
+        {
+            "r": "[^A-Za-z0-9\\-\\.]([\\d]+)(?:[^A-Za-z0-9\\-\\.]|$)",
+            "class": "NUMBER"
+        },
+        {
+            "r": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$",
+            "class": "IPV4"
+        }
+    ],
+    "classes": [
+        {
+            "name": "GUID",
+            "parent": null
+        },
+        {
+            "name": "DATE",
+            "parent": "DATETIME"
+        },
+        {
+            "name": "TIME",
+            "parent": "DATETIME"
+        },
+        {
+            "name": "DATETIME",
+            "parent": null
+        },
+        {
+            "name": "NUMBER",
+            "parent": null
+        },
+        {
+            "name": "IPV4",
+            "parent": "IP"
+        },
+        {
+            "name": "IPV6",
+            "parent": "IP"
+        },
+        {
+            "name": "IP",
+            "parent": null
+        }
+    ]
+}
