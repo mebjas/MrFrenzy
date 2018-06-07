@@ -22,7 +22,7 @@ class Variables(Exception):
             self.classes[cls["name"]] = cls
         
         ## validate the classes
-        for cls in self.classes.items():
+        for cls, val in self.classes.items():
             if self.classes[cls]["parent"]:
                 parent = self.classes[cls]["parent"]
                 if not parent in self.classes:
@@ -72,4 +72,3 @@ class Variables(Exception):
             _tokens.append(token)
         
         return " ".join(_tokens)
-
