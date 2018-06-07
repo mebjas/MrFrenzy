@@ -46,7 +46,7 @@ class Variables(Exception):
             })
 
     def Transform(self, text):
-        if not text or text.trim() == "":
+        if not text or text.strip() == "":
             raise Exception("ArgumentException text")
 
         tokens = text.split(" ")
