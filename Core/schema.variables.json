@@ -5,17 +5,26 @@
             "class": "GUID"
         },
         {
-            "r": "(\\d*)",
-            "class": "NUMBER",
+            "r": "([-]*[\\d]+)",
+            "class": "INTEGER",
             "full": true
         },
         {
             "r": "[^A-Za-z0-9\\-\\.]([\\d]+)(?:[^A-Za-z0-9\\-\\.]|$)",
-            "class": "NUMBER"
+            "class": "INTEGER"
+        },
+        {
+            "r": "([-]*[\\d\\.]+)",
+            "class": "DECIMAL",
+            "full": true
         },
         {
             "r": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$",
             "class": "IPV4"
+        },
+        {
+            "r": "([a-zA-Z0-9\\\\\\.]*\\.py)",
+            "class": "PYTHON_FILENAME"
         }
     ],
     "classes": [
@@ -40,6 +49,14 @@
             "parent": null
         },
         {
+            "name": "DECIMAL",
+            "parent": "NUMBER"
+        },
+        {
+            "name": "INTEGER",
+            "parent": "NUMBER"
+        },
+        {
             "name": "IPV4",
             "parent": "IP"
         },
@@ -50,6 +67,14 @@
         {
             "name": "IP",
             "parent": null
+        },
+        {
+            "name": "FILENAME",
+            "parent": null
+        },
+        {
+            "name": "PYTHON_FILENAME",
+            "parent": "FILENAME"
         }
     ]
 }

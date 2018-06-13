@@ -18,9 +18,9 @@ class Generator:
                 for j in range(0, len_t - len_p):
                     pattern.append(self.wildcard)
                 
-                len_p = len_t          
+                len_p = len_t
             
-            for j in range(0, len_p):
+            for j in range(0, len_t):
                 if pattern[j] == self.wildcard:
                     continue
                     
