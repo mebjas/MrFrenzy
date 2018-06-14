@@ -3,12 +3,13 @@ import json
 import re
 
 class Variables(Exception):
-    def __init__(self, filename=None):
+    def __init__(self, filename=None, verbose=False):
         if not filename:
             filename = "./schema.variables.json"
 
         self.classes = {}
         self.patterns = []
+        self.verbose = verbose
 
         data = None
         with open(filename, "r") as ifp:
@@ -18,8 +19,14 @@ class Variables(Exception):
             raise Exception("Invalid schema: patterns or classes are a must")
 
         ## load all classes
+        if verbose:
+            print ("Loading Classes")
+
         for cls in data["classes"]:
             self.classes[cls["name"]] = cls
+
+            if verbose:
+                print ("\t Loaded {%s}" % cls["name"])
         
         ## validate the classes
         for cls, val in self.classes.items():
@@ -29,6 +36,9 @@ class Variables(Exception):
                     raise Exception("%s has parent %s which is not found" % (cls, parent))
 
         ## load all the patterns
+        if verbose:
+            print ("Loading Patterns")
+
         for pattern in data["patterns"]:
             cls = pattern["class"]
             if cls not in self.classes:
@@ -39,12 +49,16 @@ class Variables(Exception):
             if "full" in pattern and pattern["full"]:
                 full = True
 
+            if verbose:
+                print ("\t Loading {%s} {Class: %s}" % (pattern["r"], cls))
+
             self.patterns.append({
                 "r": re.compile(pattern["r"]),
                 "class": cls,
                 "f": full
             })
 
+    ## TODO: add verbosity
     def Transform(self, text):
         if not text or text.strip() == "":
             raise Exception("ArgumentException text")
@@ -72,3 +86,6 @@ class Variables(Exception):
             _tokens.append(token)
         
         return " ".join(_tokens)
+
+    def TransformAll(self, texts):
+        return [self.Transform(text) for text in texts]
