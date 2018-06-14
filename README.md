@@ -1,7 +1,7 @@
 # MrFrenzy
 
 ### An experimental ***log pattern discovery*** and ***annotation framework***.
-![temp logo](https://vignette.wikia.nocookie.net/skylanders/images/a/a4/Fizzy_Frenzy_Pop_Fizz_Icon.png/revision/latest?cb=20170217083831)
+![temp logo](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS4xufuVIzzgxcpXvISMryXfraeYRbfTIiL6I6K537s3pkLziX)
 
 
 ## Features wanted
