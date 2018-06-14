@@ -1,5 +1,8 @@
 # MrFrenzy
-PoC around system to generate patterns and perform analysis on log streams
+
+### An experimental ***log pattern discovery*** and ***annotation framework***.
+![temp logo](https://vignette.wikia.nocookie.net/skylanders/images/a/a4/Fizzy_Frenzy_Pop_Fizz_Icon.png/revision/latest?cb=20170217083831)
+
 
 ## Features wanted
  - [ ] Automatically detect patterns in stream of text logs
